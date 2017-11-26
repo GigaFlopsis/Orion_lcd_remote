@@ -1,4 +1,4 @@
-This is a simple program which turns on and off LSD panel ORION olm-4620
+This is a simple program which turns on and off LCD panel ORION olm-4620
 <br/> To control the add argument On and OFF
 
 #### Copyright   
