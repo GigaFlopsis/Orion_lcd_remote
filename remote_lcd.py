@@ -17,10 +17,10 @@ msg_OFF = b'\x02A\x01\x00\x03'
 def send_cmd(cmd):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((TCP_IP, TCP_PORT))
-    if cmd == 'ON':
+    if cmd == '1':
         print('On lcd')
         s.send(msg_ON)
-    if cmd == 'OFF':
+    if cmd == '0':
         print('OFF lcd')
         s.send(msg_OFF)
     data = s.recv(BUFFER_SIZE)
@@ -32,17 +32,16 @@ def send_cmd(cmd):
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         cmd = str(sys.argv[1])
-        if (cmd != 'ON' and cmd != 'OFF'):
-             print('ERROR! Sin ON and OFF')
+        if (cmd != '1' and cmd != '0'):
+             print('ERROR! Sin 1 (ON) and 0 (OFF)')
         else:
             send_cmd(cmd)
     else:
        while True:
-        cmd = str(input('sin ON and OFF: '))
-        if (cmd != 'ON' and cmd != 'OFF'):
+        cmd = str(input('Sin 1 (ON) and 0 (OFF)'))
+        if (cmd != '1' and cmd != '0'):
              print('ERROR! Sin ON and OFF')
              continue
         else:
             send_cmd(cmd)
-
 
